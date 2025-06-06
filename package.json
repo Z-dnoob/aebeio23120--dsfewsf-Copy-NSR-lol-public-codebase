@@ -1,0 +1,29 @@
+{
+  "name": "nsr",
+  "version": "1.0.0",
+  "description": "A Naruto-themed Discord bot with character selection, currencies, and commands.",
+  "main": "/src/index.js",
+  "scripts": {
+    "start": "node /src/index.js",
+    "dev": "nodemon /src/index.js"
+  },
+  "keywords": [
+    "discord",
+    "naruto",
+    "bot",
+    "discord.js",
+    "anime"
+  ],
+  "author": ".dev.noob",
+  "license": "MIT",
+  "dependencies": {
+    "@z-dnoob/discordjs-components": "^1.0.0",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.3.2",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
