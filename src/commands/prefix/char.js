@@ -39,7 +39,7 @@ module.exports = {
 
         embed.addFields({
           name: `#${start + i + 1} - ${displayName}`,
-          value: `🆔 \`${char.id}\`\n⭐ Level: ${level} \n 🧪 XP: ${xp}`,
+          value: `🆔 \`${char.id}\`\n⭐ Level: ${level} | 🧪 XP: ${xp}`,
           inline: false,
         });
       }
