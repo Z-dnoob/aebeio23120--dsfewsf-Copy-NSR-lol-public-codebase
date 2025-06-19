@@ -27,7 +27,7 @@ module.exports = {
       .setTitle('__Welcome to Naruto Shinobi Reincarnation!__')
       .setDescription('Commonly know as **NSR**, you are about to begin your journey as shinobi!🌀\n To get started,you will need to choose of the the three starter characters:\n- Naruto Uzumaki\n- Sasuke Uchia\n- Sakura Haruno\n Click on each button below to preview their **stats** and **justsus** before making your choice. Choose wisely - your path to becoming a powerful ninja behings now! 🔥🍥⚡ ')
       .setColor('Orange')
-      .setImage('https://media.discordapp.net/attachments/1374374212990533723/1374375157937733774/start.png?width=473&height=378');
+      .setImage('https://media.discordapp.net/attachments/1374374212990533723/1382697937020391585/Start.png?ex=684c194d&is=684ac7cd&hm=a536c5cf9fbe9c27c61574b0cc5de9bf13a1900b0db79b6134f8f6f69ef94b15&=&width=525&height=350');
 
     const characterButtons = new ActionRowBuilder().addComponents(
       new ButtonBuilder().setCustomId('char_naruto').setLabel('Naruto').setStyle(ButtonStyle.Primary),
@@ -49,7 +49,7 @@ module.exports = {
       if (interaction.user.id !== userId) {
         return interaction.reply({
           content: "❌ This interaction isn't for you!",
-          flags: 64, // Use flags instead of deprecated "ephemeral"
+          flags: 64, 
         });
       }
 
@@ -105,7 +105,7 @@ module.exports = {
             `You've acquired **${characterData.name}**!\nAs a welcoming gift you have been rewarded with <:RyoCoins:1105741695087284234> **75,000 Ryo** to start off your journey!`
           )
           .setColor('Green')
-          .setImage('https://media.discordapp.net/attachments/1374374212990533723/1374375157937733774/start.png?width=473&height=378');
+          .setImage('https://media.discordapp.net/attachments/1374374212990533723/1382697937020391585/Start.png?ex=684c194d&is=684ac7cd&hm=a536c5cf9fbe9c27c61574b0cc5de9bf13a1900b0db79b6134f8f6f69ef94b15&=&width=525&height=350');
 
         await interaction.update({
           embeds: [finalEmbed],

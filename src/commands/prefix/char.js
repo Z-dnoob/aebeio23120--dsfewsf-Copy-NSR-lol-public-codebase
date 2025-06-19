@@ -24,7 +24,7 @@ module.exports = {
       const currentCharacters = userData.characters.slice(start, end);
 
       const embed = new EmbedBuilder()
-        .setTitle('🧍 Your Characters')
+        .setTitle('⚡ Your Characters ⚡')
         .setDescription(`You have ${userData.characters.length} character(s)!`)
         .setColor('Gold');
 
@@ -36,10 +36,11 @@ module.exports = {
         const displayName = data?.name || char.name;
         const level = char.level || 1;
         const xp = char.xp || 0;
+        const prodNum = char.productionNumber ?? 0;
 
         embed.addFields({
           name: `#${start + i + 1} - ${displayName}`,
-          value: `🆔 \`${char.id}\`\n⭐ Level: ${level} | 🧪 XP: ${xp}`,
+          value: `✏️ ID :\`${char.id}\`\n🔢 Production ID: \`${prodNum}\` \n⭐ Level: ${level} | 🧪 XP: ${xp}`,
           inline: false,
         });
       }
@@ -51,12 +52,12 @@ module.exports = {
     const buildButtons = () => new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId('prev')
-        .setLabel('⬅ Previous')
+        .setLabel('<<')
         .setStyle(ButtonStyle.Primary)
         .setDisabled(currentPage === 0),
       new ButtonBuilder()
         .setCustomId('next')
-        .setLabel('Next ➡')
+        .setLabel('>>')
         .setStyle(ButtonStyle.Primary)
         .setDisabled(currentPage === totalPages - 1)
     );

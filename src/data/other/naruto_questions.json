@@ -1,0 +1,242 @@
+[
+  {
+    "question": "What is Naruto Uzumaki's signature jutsu?",
+    "correct": "Shadow Clone Jutsu",
+    "options": ["Shadow Clone Jutsu", "Rasenshuriken", "Chidori", "Fireball Jutsu"]
+  },
+  {
+    "question": "Who is the leader of Team 7?",
+    "correct": "Kakashi Hatake",
+    "options": ["Kakashi Hatake", "Might Guy", "Iruka Umino", "Asuma Sarutobi"]
+  },
+  {
+    "question": "What beast is sealed inside Naruto?",
+    "correct": "Nine-Tailed Fox",
+    "options": ["Nine-Tailed Fox", "Eight-Tails", "One-Tail", "Ten-Tails"]
+  },
+  {
+    "question": "Who is Naruto's father?",
+    "correct": "Minato Namikaze",
+    "options": ["Minato Namikaze", "Jiraiya", "Kakashi Hatake", "Hiruzen Sarutobi"]
+  },
+  {
+    "question": "Which village is Naruto from?",
+    "correct": "Hidden Leaf Village",
+    "options": ["Hidden Leaf Village", "Hidden Sand Village", "Hidden Mist Village", "Hidden Cloud Village"]
+  },
+  {
+    "question": "What is Sasuke's clan name?",
+    "correct": "Uchiha",
+    "options": ["Uchiha", "Hyuga", "Nara", "Akimichi"]
+  },
+  {
+    "question": "What dojutsu does Sasuke possess?",
+    "correct": "Sharingan",
+    "options": ["Sharingan", "Byakugan", "Rinnegan", "Tenseigan"]
+  },
+  {
+    "question": "Who is the copy ninja of the Leaf?",
+    "correct": "Kakashi Hatake",
+    "options": ["Kakashi Hatake", "Itachi Uchiha", "Yamato", "Shikamaru Nara"]
+  },
+  {
+    "question": "Who trained Naruto during the time skip?",
+    "correct": "Jiraiya",
+    "options": ["Jiraiya", "Kakashi", "Asuma", "Orochimaru"]
+  },
+  {
+    "question": "Who killed Asuma Sarutobi?",
+    "correct": "Hidan",
+    "options": ["Hidan", "Kakuzu", "Itachi", "Pain"]
+  },
+  {
+    "question": "What does Chidori mean?",
+    "correct": "One Thousand Birds",
+    "options": ["One Thousand Birds", "Lightning Blade", "Swift Cut", "Flash Strike"]
+  },
+  {
+    "question": "Who is the jinchūriki of the One-Tail?",
+    "correct": "Gaara",
+    "options": ["Gaara", "Bee", "Naruto", "Yugito Nii"]
+  },
+  {
+    "question": "What Kekkei Genkai does Haku use?",
+    "correct": "Ice Release",
+    "options": ["Ice Release", "Wood Release", "Storm Release", "Explosion Release"]
+  },
+  {
+    "question": "What organization did Itachi Uchiha join?",
+    "correct": "Akatsuki",
+    "options": ["Akatsuki", "Anbu", "Root", "Uchiha Clan"]
+  },
+  {
+    "question": "Who was the first Hokage?",
+    "correct": "Hashirama Senju",
+    "options": ["Hashirama Senju", "Tobirama Senju", "Hiruzen Sarutobi", "Minato Namikaze"]
+  },
+  {
+    "question": "Who has the Rinnegan?",
+    "correct": "Nagato",
+    "options": ["Nagato", "Itachi", "Kakashi", "Sasori"]
+  },
+  {
+    "question": "What is the name of Naruto's mother?",
+    "correct": "Kushina Uzumaki",
+    "options": ["Kushina Uzumaki", "Hinata Hyuga", "Tsunade", "Sakura Haruno"]
+  },
+  {
+    "question": "Who created the Akatsuki?",
+    "correct": "Yahiko",
+    "options": ["Yahiko", "Nagato", "Madara Uchiha", "Obito Uchiha"]
+  },
+  {
+    "question": "What is the summoning animal of Jiraiya?",
+    "correct": "Toads",
+    "options": ["Toads", "Snakes", "Slugs", "Wolves"]
+  },
+  {
+    "question": "Which tailed beast does Killer Bee have?",
+    "correct": "Eight-Tails",
+    "options": ["Eight-Tails", "Nine-Tails", "Seven-Tails", "Six-Tails"]
+  },
+  {
+    "question": "Who was the Third Hokage?",
+    "correct": "Hiruzen Sarutobi",
+    "options": ["Hiruzen Sarutobi", "Tobirama Senju", "Minato Namikaze", "Danzo Shimura"]
+  },
+  {
+    "question": "Which Uchiha awakened the Mangekyō Sharingan first?",
+    "correct": "Madara Uchiha",
+    "options": ["Madara Uchiha", "Itachi Uchiha", "Sasuke Uchiha", "Shisui Uchiha"]
+  },
+  {
+    "question": "Who is known as the Yellow Flash?",
+    "correct": "Minato Namikaze",
+    "options": ["Minato Namikaze", "Naruto Uzumaki", "Kakashi Hatake", "Itachi Uchiha"]
+  },
+  {
+    "question": "Which clan uses Gentle Fist technique?",
+    "correct": "Hyuga",
+    "options": ["Hyuga", "Uchiha", "Inuzuka", "Yamanaka"]
+  },
+  {
+    "question": "What is the Rinnegan ability to revive the dead?",
+    "correct": "Naraka Path",
+    "options": ["Naraka Path", "Deva Path", "Human Path", "Animal Path"]
+  },
+  {
+    "question": "What is Tsunade's summon?",
+    "correct": "Slug",
+    "options": ["Slug", "Toad", "Snake", "Monkey"]
+  },
+  {
+    "question": "Which Akatsuki member uses puppets?",
+    "correct": "Sasori",
+    "options": ["Sasori", "Deidara", "Kisame", "Zetsu"]
+  },
+  {
+    "question": "Who is known as the 'Legendary Sucker'?",
+    "correct": "Tsunade",
+    "options": ["Tsunade", "Jiraiya", "Kushina", "Konan"]
+  },
+  {
+    "question": "Who is Naruto's rival and friend?",
+    "correct": "Sasuke Uchiha",
+    "options": ["Sasuke Uchiha", "Neji Hyuga", "Kiba Inuzuka", "Shino Aburame"]
+  },
+  {
+    "question": "Which chakra nature does Naruto learn from Asuma’s advice?",
+    "correct": "Wind",
+    "options": ["Wind", "Fire", "Earth", "Lightning"]
+  },
+  {
+    "question": "Who was the Eight-Tails before Killer Bee?",
+    "correct": "Blue B",
+    "options": ["Blue B", "Yagura", "Roshi", "Fuu"]
+  },
+  {
+    "question": "Who can open all Eight Gates?",
+    "correct": "Might Guy",
+    "options": ["Might Guy", "Rock Lee", "Kakashi", "Neji"]
+  },
+  {
+    "question": "Who developed the Rasenshuriken?",
+    "correct": "Naruto Uzumaki",
+    "options": ["Naruto Uzumaki", "Minato Namikaze", "Kakashi Hatake", "Jiraiya"]
+  },
+  {
+    "question": "What is the Akatsuki’s goal?",
+    "correct": "Capture all tailed beasts",
+    "options": ["Capture all tailed beasts", "Destroy Konoha", "Revive Madara", "Rule the world"]
+  },
+  {
+    "question": "Who founded Konoha with Hashirama?",
+    "correct": "Madara Uchiha",
+    "options": ["Madara Uchiha", "Tobirama Senju", "Hiruzen Sarutobi", "Danzo Shimura"]
+  },
+  {
+    "question": "Who did Neji lose to in the Chunin Exams?",
+    "correct": "Naruto Uzumaki",
+    "options": ["Naruto Uzumaki", "Rock Lee", "Sasuke Uchiha", "Shikamaru Nara"]
+  },
+  {
+    "question": "What is the name of Naruto’s son?",
+    "correct": "Boruto",
+    "options": ["Boruto", "Kawaki", "Sarada", "Konohamaru"]
+  },
+  {
+    "question": "Who is known for the Explosive Clay?",
+    "correct": "Deidara",
+    "options": ["Deidara", "Sasori", "Tobi", "Kisame"]
+  },
+  {
+    "question": "Who used the Infinite Tsukuyomi?",
+    "correct": "Madara Uchiha",
+    "options": ["Madara Uchiha", "Obito Uchiha", "Nagato", "Sasuke Uchiha"]
+  },
+  {
+    "question": "What is Hinata's clan?",
+    "correct": "Hyuga",
+    "options": ["Hyuga", "Uchiha", "Nara", "Yamanaka"]
+  },
+  {
+    "question": "What is Rock Lee unable to do?",
+    "correct": "Use ninjutsu or genjutsu",
+    "options": ["Use ninjutsu or genjutsu", "Use taijutsu", "Use chakra", "Use summoning"]
+  },
+  {
+    "question": "Which Akatsuki member used a scythe?",
+    "correct": "Hidan",
+    "options": ["Hidan", "Kisame", "Kakuzu", "Zetsu"]
+  },
+  {
+    "question": "What village does Gaara lead?",
+    "correct": "Hidden Sand Village",
+    "options": ["Hidden Sand Village", "Hidden Leaf", "Hidden Mist", "Hidden Cloud"]
+  },
+  {
+    "question": "What is the technique used to seal the Nine-Tails?",
+    "correct": "Eight Trigrams Seal",
+    "options": ["Eight Trigrams Seal", "Reaper Death Seal", "Heavenly Prison", "Sealing Jutsu"]
+  },
+  {
+    "question": "Who is the strongest tailed beast?",
+    "correct": "Ten-Tails",
+    "options": ["Ten-Tails", "Nine-Tails", "Eight-Tails", "Seven-Tails"]
+  },
+  {
+    "question": "What is Itachi's signature genjutsu?",
+    "correct": "Tsukuyomi",
+    "options": ["Tsukuyomi", "Amaterasu", "Susanoo", "Kamui"]
+  },
+  {
+    "question": "What does Naruto wear on his forehead?",
+    "correct": "Konoha forehead protector",
+    "options": ["Konoha forehead protector", "Seal tag", "Scroll", "Bandage"]
+  },
+  {
+    "question": "What is the name of the exam Naruto takes early on?",
+    "correct": "Chunin Exam",
+    "options": ["Chunin Exam", "Genin Trial", "Ninja Ranking Test", "Jounin Challenge"]
+  }
+]

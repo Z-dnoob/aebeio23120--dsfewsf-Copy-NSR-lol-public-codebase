@@ -1,6 +1,10 @@
 const User = require("../database/models/User");
-const { v4: uuidv4 } = require('uuid');
-require('dotenv').config();
+const { getCharacterData } = require("../data/characters/character");
+const Production = require("./Production");
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 async function getUser(userId) {
   let user = await User.findOne({ userId });
@@ -10,91 +14,88 @@ async function getUser(userId) {
       ryo: 0,
       cinnabarElixir: 0,
       hiddenScroll: 0,
-      characters: [],
-      startedAt: new Date()
+      characters: []
     });
     await user.save();
   }
   return user;
 }
 
-async function addRyo(userId, amount) {
-  const user = await getUser(userId);
-  const numAmount = Number(amount);
-  if (isNaN(numAmount)) throw new Error("Amount must be a valid number");
-  user.ryo += numAmount;
-  await user.save();
-  return user.ryo;
+async function getNextProductionNumber() {
+  let record = await Production.findOne();
+  if (!record) {
+    record = new Production({ count: 1 });
+    await record.save();
+    return 0;
+  } else {
+    const current = record.count;
+    record.count += 1;
+    await record.save();
+    return current;
+  }
 }
 
-async function subtractRyo(userId, amount) {
+async function addCurrency(userId, type, amount) {
   const user = await getUser(userId);
-  const numAmount = Number(amount);
-  if (isNaN(numAmount)) throw new Error("Amount must be a valid number");
-  user.ryo = Math.max(user.ryo - numAmount, 0);
+  const amt = Number(amount);
+  if (isNaN(amt)) throw new Error("Invalid amount");
+  user[type] += amt;
   await user.save();
-  return user.ryo;
+  return user[type];
 }
 
-async function addCinnabarElixir(userId, amount) {
+async function subtractCurrency(userId, type, amount) {
   const user = await getUser(userId);
-  const numAmount = Number(amount);
-  if (isNaN(numAmount)) throw new Error("Amount must be a valid number");
-  user.cinnabarElixir += numAmount;
+  const amt = Number(amount);
+  if (isNaN(amt)) throw new Error("Invalid amount");
+  user[type] = Math.max(user[type] - amt, 0);
   await user.save();
-  return user.cinnabarElixir;
+  return user[type];
 }
 
-async function subtractCinnabarElixir(userId, amount) {
-  const user = await getUser(userId);
-  const numAmount = Number(amount);
-  if (isNaN(numAmount)) throw new Error("Amount must be a valid number");
-  user.cinnabarElixir = Math.max(user.cinnabarElixir - numAmount, 0);
-  await user.save();
-  return user.cinnabarElixir;
-}
+const addRyo = (userId, amt) => addCurrency(userId, "ryo", amt);
+const subtractRyo = (userId, amt) => subtractCurrency(userId, "ryo", amt);
+const addCinnabarElixir = (userId, amt) => addCurrency(userId, "cinnabarElixir", amt);
+const subtractCinnabarElixir = (userId, amt) => subtractCurrency(userId, "cinnabarElixir", amt);
+const addHiddenScroll = (userId, amt) => addCurrency(userId, "hiddenScroll", amt);
+const subtractHiddenScroll = (userId, amt) => subtractCurrency(userId, "hiddenScroll", amt);
 
-async function addHiddenScroll(userId, amount) {
-  const user = await getUser(userId);
-  const numAmount = Number(amount);
-  if (isNaN(numAmount)) throw new Error("Amount must be a valid number");
-  user.hiddenScroll += numAmount;
-  await user.save();
-  return user.hiddenScroll;
-}
-
-async function subtractHiddenScroll(userId, amount) {
-  const user = await getUser(userId);
-  const numAmount = Number(amount);
-  if (isNaN(numAmount)) throw new Error("Amount must be a valid number");
-  user.hiddenScroll = Math.max(user.hiddenScroll - numAmount, 0);
-  await user.save();
-  return user.hiddenScroll;
-}
-
-const getNextCharId = (characters) => {
-  const existingIds = characters.map(c => parseInt(c.id)).filter(n => !isNaN(n));
-  const maxId = existingIds.length ? Math.max(...existingIds) : 0;
-  return (maxId + 1).toString();
+const getNextCharId = (chars) => {
+  const ids = chars.map(c => parseInt(c.id)).filter(n => !isNaN(n));
+  return (Math.max(0, ...ids) + 1).toString();
 };
 
 async function addCharacter(userId, charName) {
   const user = await getUser(userId);
-  const nextCharId = getNextCharId(user.characters);
+  const base = getCharacterData(charName);
+  if (!base) throw new Error("Character data not found");
+
+  const yin = getRandomInt(0, 50);
+  const yang = getRandomInt(0, 50);
+  const productionNumber = await getNextProductionNumber();
 
   const newChar = {
-    id: nextCharId,
-    name: charName,
+    id: getNextCharId(user.characters),
+    name: base.name,
     level: 1,
-    xp: 0
+    xp: 0,
+    yin,
+    yang,
+    hp: (base.stats.hp || 0) + yang,
+    chakra: base.stats.chakra || 0,
+    attack: base.stats.attack || 0,
+    defense: (base.stats.defense || 0) + yin,
+    agility: base.stats.agility || 0,
+    rarity: base.rarity || "Unknown",
+    chakraNature: base.chakraNature || "Unknown",
+    image: base.image || null,
+    productionNumber
   };
 
   user.characters.push(newChar);
   await user.save();
-
   return newChar;
 }
-
 
 async function removeCharacter(userId, charId) {
   const user = await getUser(userId);
@@ -117,34 +118,13 @@ async function getCharacterById(userId, charId) {
   return user.characters.find(c => c.id === charId) || null;
 }
 
-async function addXpToCharacter(userId, charId, xpAmount) {
-  const user = await getUser(userId);
-  const character = user.characters.find(c => c.id === charId);
-  if (!character) return false;
-
-  character.xp += xpAmount;
-  await user.save();
-  return character;
-}
-
-async function levelUpCharacter(userId, charId) {
-  const user = await getUser(userId);
-  const character = user.characters.find(c => c.id === charId);
-  if (!character) return false;
-
-  character.level += 1;
-  await user.save();
-  return character.level;
-}
-
 async function getCharacterCount(userId) {
   const user = await getUser(userId);
   return user.characters.length;
 }
 
 async function hasPickedTwoCharacters(userId) {
-  const count = await getCharacterCount(userId);
-  return count >= 2;
+  return (await getCharacterCount(userId)) >= 2;
 }
 
 async function getBalance(userId) {
@@ -158,7 +138,38 @@ async function getBalance(userId) {
   };
 }
 
-const Database = {
+function getXpForNextLevel(level) {
+  return Math.floor(100 * Math.pow(1.5, level - 1));
+}
+
+async function addXpToCharacter(userId, charId, xpGain) {
+  const user = await getUser(userId);
+  const char = user.characters.find(c => c.id === charId);
+  if (!char) return false;
+
+  char.xp += xpGain;
+
+  let leveledUp = false;
+  let levels = 0;
+
+  while (char.xp >= getXpForNextLevel(char.level)) {
+    char.xp -= getXpForNextLevel(char.level);
+    char.level++;
+    levels++;
+    leveledUp = true;
+
+    char.hp += 10 + (char.yang || 0);
+    char.attack += 5;
+    char.defense += 5 + (char.yin || 0);
+    char.agility += 5;
+    char.chakra += 10;
+  }
+
+  await user.save();
+  return { character: char, leveledUp, levelsGained: levels };
+}
+
+module.exports = {
   getUser,
   addRyo,
   subtractRyo,
@@ -171,10 +182,7 @@ const Database = {
   getCharacters,
   getCharacterById,
   addXpToCharacter,
-  levelUpCharacter,
   getCharacterCount,
   hasPickedTwoCharacters,
   getBalance
 };
-
-module.exports = Database;

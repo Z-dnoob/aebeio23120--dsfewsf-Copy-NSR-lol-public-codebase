@@ -6,6 +6,10 @@ function normalizeName(name) {
   return name.toLowerCase().replace(/[^a-z]/gi, "");
 }
 
+function normalizeName(name) {
+  return name.toLowerCase().replace(/[^a-z]/g, "");
+}
+
 function getCharacterData(rawName) {
   const characterDir = path.join(__dirname, "../characters");
   const files = fs.readdirSync(characterDir);
@@ -15,8 +19,15 @@ function getCharacterData(rawName) {
     if (file.endsWith(".json")) {
       const characterPath = path.join(characterDir, file);
       const characterData = JSON.parse(fs.readFileSync(characterPath, "utf8"));
-      const fileName = path.parse(file).name;
-      if (normalizeName(fileName) === normalizedInput) {
+
+      const fullName = characterData.name || "";
+      const normalizedFullName = normalizeName(fullName);
+      const normalizedFirstName = normalizeName(fullName.split(" ")[0]);
+
+      if (
+        normalizedInput === normalizedFullName ||
+        normalizedInput === normalizedFirstName
+      ) {
         return characterData;
       }
     }
@@ -33,8 +44,8 @@ function getAllCharacters() {
   for (const file of files) {
     if (file.endsWith(".json")) {
       const characterData = JSON.parse(fs.readFileSync(path.join(characterDir, file), "utf8"));
-      const fileName = path.parse(file).name;
-      characters[normalizeName(fileName)] = characterData;
+      const normalizedName = normalizeName(characterData.name);
+      characters[normalizedName] = characterData;
     }
   }
   return characters;
