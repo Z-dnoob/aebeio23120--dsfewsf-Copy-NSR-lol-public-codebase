@@ -4,6 +4,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const fs = require('fs');
 const mongoose = require('mongoose');
+const express = require('express');
 
 const client = new Client({
   intents: [
@@ -15,6 +16,19 @@ const client = new Client({
     GatewayIntentBits.DirectMessages
   ],
 });
+
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Bot is alive! 🚀');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🌐 Self-pinger server running on port ${PORT}`);
+});
+
+// Start pinger.js to ping Render URL
+require('child_process').fork('./pinger.js');
 
 client.commands = new Collection();
 const slashCommands = [];
