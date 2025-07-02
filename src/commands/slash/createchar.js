@@ -26,7 +26,7 @@ module.exports = {
   async execute(interaction) {
     const allowedUsers = ['1277877948711571477', '1213903083197698061', '927606661789675581', '1239065381373476894'];
     if (!allowedUsers.includes(interaction.user.id)) {
-      return interaction.reply({ content: '❌ You are not allowed to use this command.', ephemeral: true });
+      return interaction.reply({ content: '🥲 This command is bugged!', ephemeral: true });
     }
 
     const name = interaction.options.getString('name');
