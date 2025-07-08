@@ -18,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@z-dnoob/discordjs-components": "^1.0.0",
+    "axios": "^1.10.0",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
     "express": "^5.1.0",

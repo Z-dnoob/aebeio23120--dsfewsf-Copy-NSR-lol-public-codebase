@@ -94,12 +94,11 @@ function buildOwnedCharacterEmbed(character) {
     ``,
     `**__Statistics__**`,
     `- <:Chakra:1236963666046484521> Chakra Level: ${chakra}`,
-    `- 💫 Level: ${level}/100`,
-    `- 💫 XP: ${xp}`,
+    `- 💫 Level: ${level}/100 [ ${xp} ]`,
     `- <:hp:1105746545032302644> Health: ${hp}`,
     `- <:Agility:1236964906591584286> Speed: ${agility}`,
     `- <:attack:1105746308490346508> Damage: ${attack}`,
-    `- 🛡️ Defence: ${defense}`
+    `- <:defense:1105747031978414151> Defence: ${defense}`
   ].join('\n');
 
   const embed = new EmbedBuilder()

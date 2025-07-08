@@ -1,0 +1,45 @@
+{
+  "name": "Kakashi Hatake",
+  "rarity": "Uncommon",
+  "chakraNature": "Lighting",
+  "subNatures": [
+    "Water",
+    "Wind",
+    "Fire",
+    "Earth"
+  ],
+  "stats": {
+    "hp": 75,
+    "chakra": 75,
+    "attack": 60,
+    "defense": 30,
+    "agility": 110
+  },
+  "boost": [],
+  "moves": [
+    {
+      "name": "Lighting Blade",
+      "damage": 85
+    },
+    {
+      "name": "Kamui",
+      "damage": 55
+    },
+    {
+      "name": "Water Dragon Bullet Jutsu",
+      "damage": 60
+    },
+    {
+      "name": "Purple Lighting",
+      "damage": 95
+    }
+  ],
+  "emojis": {
+    "hp": "<:hp:1105746545032302644>",
+    "chakra": "<:Chakra:1236963666046484521>",
+    "attack": "<:attack:1105746308490346508>",
+    "defense": "<:defense:1105747031978414151>",
+    "agility": "<:Agility:1236964906591584286>"
+  },
+  "image": "kakashi.png"
+}

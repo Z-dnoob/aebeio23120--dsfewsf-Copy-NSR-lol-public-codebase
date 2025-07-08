@@ -1,0 +1,45 @@
+{
+  "name": "Itachi Uchiha",
+  "rarity": "Uncommon",
+  "chakraNature": "Fire",
+  "subNatures": [
+    "Water",
+    "Wind",
+    "Yin",
+    "Yang"
+  ],
+  "stats": {
+    "hp": 95,
+    "chakra": 70,
+    "attack": 60,
+    "defense": 25,
+    "agility": 110
+  },
+  "boost": [],
+  "moves": [
+    {
+      "name": "Tsukuyomi",
+      "damage": 75
+    },
+    {
+      "name": "Clone Great Explosion",
+      "damage": 65
+    },
+    {
+      "name": "Fire Ball Jutsu",
+      "damage": 45
+    },
+    {
+      "name": "Water Fang Bullet",
+      "damage": 45
+    }
+  ],
+  "emojis": {
+    "hp": "<:hp:1105746545032302644>",
+    "chakra": "<:Chakra:1236963666046484521>",
+    "attack": "<:attack:1105746308490346508>",
+    "defense": "<:defense:1105747031978414151>",
+    "agility": "<:Agility:1236964906591584286>"
+  },
+  "image": "Itachi.png"
+}

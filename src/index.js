@@ -6,6 +6,9 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const express = require('express');
 
+const { fork } = require('child_process');
+fork(path.join(__dirname, './pinger.js'));
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -27,9 +30,6 @@ app.listen(PORT, () => {
   console.log(`🌐 Self-pinger server running on port ${PORT}`);
 });
 
-// Start pinger.js to ping Render URL
-require('child_process').fork('./pinger.js');
-
 client.commands = new Collection();
 const slashCommands = [];
 
@@ -46,11 +46,10 @@ for (const file of slashFiles) {
   }
 }
 
-
 require('./events/interactionCreate')(client);
 require('./events/messageCreate')(client);
-
-
+require('./events/ready')(client);
+ 
 client.once('ready', async () => {
   console.log(`✅ Logged in as ${client.user.tag}`);
 
@@ -72,7 +71,6 @@ client.once('ready', async () => {
   });
 });
 
-
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -84,6 +82,5 @@ mongoose.connect(process.env.MONGO_URL, {
 .catch(err => {
   console.error('❌ MongoDB connection error:', err);
 });
-
 
 // mongodb+srv://nsrdev:EojuRtUG5YAD9LMV@nsrdev.hmp19ai.mongodb.net/?retryWrites=true&w=majority&appName=Nsrdev

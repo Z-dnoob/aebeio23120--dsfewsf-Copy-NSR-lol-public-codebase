@@ -1,0 +1,43 @@
+{
+  "name": "Might Guy",
+  "rarity": "Uncommon",
+  "chakraNature": "None",
+  "subNatures": [
+    "Fire",
+    "Lighting"
+  ],
+  "stats": {
+    "hp": 85,
+    "chakra": 10,
+    "attack": 60,
+    "defense": 25,
+    "agility": 95
+  },
+  "boost": [],
+  "moves": [
+    {
+      "name": "Shadow Of Dancing Leaf",
+      "damage": 75
+    },
+    {
+      "name": "Evening elephant",
+      "damage": 65
+    },
+    {
+      "name": "Dancing Entry",
+      "damage": 45
+    },
+    {
+      "name": "Leaf Whirlwind",
+      "damage": 65
+    }
+  ],
+  "emojis": {
+    "hp": "<:hp:1105746545032302644>",
+    "chakra": "<:Chakra:1236963666046484521>",
+    "attack": "<:attack:1105746308490346508>",
+    "defense": "<:defense:1105747031978414151>",
+    "agility": "<:Agility:1236964906591584286>"
+  },
+  "image": "might_guy.png"
+}

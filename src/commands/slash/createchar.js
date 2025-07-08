@@ -24,75 +24,89 @@ module.exports = {
     .addIntegerOption(opt => opt.setName('dmgmove4').setDescription('Move 4 damage').setRequired(true)),
 
   async execute(interaction) {
-    const allowedUsers = ['1277877948711571477', '1213903083197698061', '927606661789675581', '1239065381373476894'];
+    const allowedUsers = [
+      '1277877948711571477', 
+      '1213903083197698061', 
+      '927606661789675581', 
+      '1239065381373476894', 
+      '1092076094926102538', 
+      '1333948810048704573'
+    ];
+
     if (!allowedUsers.includes(interaction.user.id)) {
       return interaction.reply({ content: '🥲 This command is bugged!', ephemeral: true });
     }
 
-    const name = interaction.options.getString('name');
-    const rarity = interaction.options.getString('rarity');
-    const chakraNature = interaction.options.getString('chakra_nature');
-    const subNatures = interaction.options.getString('sub_natures').split(',').map(s => s.trim());
-    const hp = interaction.options.getInteger('hp');
-    const chakra = interaction.options.getInteger('chakra');
-    const attack = interaction.options.getInteger('attack');
-    const defense = interaction.options.getInteger('defense');
-    const agility = interaction.options.getInteger('agility');
-    const imageAttachment = interaction.options.getAttachment('image');
+    await interaction.deferReply({ ephemeral: true });
 
-    const move1 = interaction.options.getString('move1');
-    const dmgMove1 = interaction.options.getInteger('dmgmove1');
-    const move2 = interaction.options.getString('move2');
-    const dmgMove2 = interaction.options.getInteger('dmgmove2');
-    const move3 = interaction.options.getString('move3');
-    const dmgMove3 = interaction.options.getInteger('dmgmove3');
-    const move4 = interaction.options.getString('move4');
-    const dmgMove4 = interaction.options.getInteger('dmgmove4');
+    try {
+      const name = interaction.options.getString('name');
+      const rarity = interaction.options.getString('rarity');
+      const chakraNature = interaction.options.getString('chakra_nature');
+      const subNatures = interaction.options.getString('sub_natures').split(',').map(s => s.trim());
+      const hp = interaction.options.getInteger('hp');
+      const chakra = interaction.options.getInteger('chakra');
+      const attack = interaction.options.getInteger('attack');
+      const defense = interaction.options.getInteger('defense');
+      const agility = interaction.options.getInteger('agility');
+      const imageAttachment = interaction.options.getAttachment('image');
 
-    const charJson = {
-      name,
-      rarity,
-      chakraNature,
-      subNatures,
-      stats: {
-        hp,
-        chakra,
-        attack,
-        defense,
-        agility
-      },
-      boost: [],
-      moves: [
-        { name: move1, damage: dmgMove1 },
-        { name: move2, damage: dmgMove2 },
-        { name: move3, damage: dmgMove3 },
-        { name: move4, damage: dmgMove4 }
-      ],
-      emojis: {
-        hp: "<:hp:1105746545032302644>",
-        chakra: "<:Chakra:1236963666046484521>",
-        attack: "<:attack:1105746308490346508>",
-        defense: "<:defense:1105747031978414151>",
-        agility: "<:Agility:1236964906591584286>"
-      },
-      image: imageAttachment.url // 👈 Updated to include the uploaded image URL
-    };
+      const move1 = interaction.options.getString('move1');
+      const dmgMove1 = interaction.options.getInteger('dmgmove1');
+      const move2 = interaction.options.getString('move2');
+      const dmgMove2 = interaction.options.getInteger('dmgmove2');
+      const move3 = interaction.options.getString('move3');
+      const dmgMove3 = interaction.options.getInteger('dmgmove3');
+      const move4 = interaction.options.getString('move4');
+      const dmgMove4 = interaction.options.getInteger('dmgmove4');
 
-    const jsonCode = JSON.stringify(charJson, null, 2);
+      const charJson = {
+        name,
+        rarity,
+        chakraNature,
+        subNatures,
+        stats: {
+          hp,
+          chakra,
+          attack,
+          defense,
+          agility
+        },
+        boost: [],
+        moves: [
+          { name: move1, damage: dmgMove1 },
+          { name: move2, damage: dmgMove2 },
+          { name: move3, damage: dmgMove3 },
+          { name: move4, damage: dmgMove4 }
+        ],
+        emojis: {
+          hp: "<:hp:1105746545032302644>",
+          chakra: "<:Chakra:1236963666046484521>",
+          attack: "<:attack:1105746308490346508>",
+          defense: "<:defense:1105747031978414151>",
+          agility: "<:Agility:1236964906591584286>"
+        },
+        image: imageAttachment.url
+      };
 
-    const channel = interaction.client.channels.cache.get('1389950204630925372');
-    if (!channel) {
-      return interaction.reply({ content: '❌ Could not find the output channel.', ephemeral: true });
+      const jsonCode = JSON.stringify(charJson, null, 2);
+
+      const channel = interaction.client.channels.cache.get('1389950204630925372');
+      if (!channel) {
+        return interaction.editReply({ content: '❌ Could not find the output channel.' });
+      }
+
+      const image = new AttachmentBuilder(imageAttachment.url, { name: `${name.replace(/\s+/g, '_')}.png` });
+
+      await channel.send({
+        content: `Stats for **${name}**\n\`\`\`js\n${jsonCode}\n\`\`\``,
+        files: [image]
+      });
+
+      await interaction.editReply({ content: `🎉 JSON for **${name}** has been sent to <#1389950204630925372> with the image!` });
+    } catch (err) {
+      console.error('⚠️ Error creating character JSON:', err);
+      await interaction.editReply({ content: '❌ An error occurred while creating the character. Please check your inputs.' });
     }
-
-    // Create attachment object from the URL
-    const image = new AttachmentBuilder(imageAttachment.url, { name: `${name.replace(/\s+/g, '_')}.png` });
-
-    await channel.send({
-      content: `Stats for **${name}**\n\`\`\`js\n${jsonCode}\n\`\`\``,
-      files: [image]
-    });
-
-    return interaction.reply({ content: `🎉 JSON for **${name}** has been sent to <#1389950204630925372> with the image!`, ephemeral: true });
   }
 };

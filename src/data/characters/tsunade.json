@@ -1,0 +1,46 @@
+{
+  "name": "Tsunade Senju",
+  "rarity": "Uncommon",
+  "chakraNature": "Yin",
+  "subNatures": [
+    "Water",
+    "Earth",
+    "Fire",
+    "Lighting",
+    "Yang"
+  ],
+  "stats": {
+    "hp": 115,
+    "chakra": 75,
+    "attack": 60,
+    "defense": 40,
+    "agility": 25
+  },
+  "boost": [],
+  "moves": [
+    {
+      "name": "Heavenly Foot Of Pain",
+      "damage": 45
+    },
+    {
+      "name": "Strength Of A Hundred Seal",
+      "damage": 65
+    },
+    {
+      "name": "Mystical Palm Technique",
+      "damage": 40
+    },
+    {
+      "name": "Heavenly Spear Foot",
+      "damage": 25
+    }
+  ],
+  "emojis": {
+    "hp": "<:hp:1105746545032302644>",
+    "chakra": "<:Chakra:1236963666046484521>",
+    "attack": "<:attack:1105746308490346508>",
+    "defense": "<:defense:1105747031978414151>",
+    "agility": "<:Agility:1236964906591584286>"
+  },
+  "image": "tsunade.png"
+}
